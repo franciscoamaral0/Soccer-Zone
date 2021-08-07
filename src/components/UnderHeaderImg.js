@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImageUnderHeader from '../images/cropped_image.png'
+import ImageUnderHeader from '../images/cropped_image1.png'
 
 class UnderHeaderImg extends Component {
   state = {  }

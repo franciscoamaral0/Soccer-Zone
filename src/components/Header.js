@@ -35,8 +35,3 @@ class Header extends Component {
 
 export default Header;
 
-{/* <Link>Campeonato Brasileiro</Link>
-<Link>Copa do Brasil</Link>
-<Link>Libertadores</Link>
-<Link>Sulamericana</Link> */}
-{/* <img src={ImageLogo} alt="" width="70" height="70" className="d-inline-block align-items-xl-center"/> */}
