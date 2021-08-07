@@ -10,9 +10,9 @@ class Header extends Component {
   render() { 
     return (  
       <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#">  <img width="80"  src={ImageLogo}/> </Navbar.Brand>
+      <Navbar.Brand className='ps-5' href="#">  <img width="80"  src={ImageLogo}/> </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
-      <Navbar.Collapse id="navbarScroll">
+      <Navbar.Collapse className='ps-5' id="navbarScroll">
       <Nav
       className="mr-auto my-2 my-lg-0 "
       style={{ maxHeight: '100px' }}
