@@ -3,6 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import ImageCarrousel from '../images/borussia-dortmund-4k-fans-tribune-bundesliga (1).jpg'
 import Figure from 'react-bootstrap/Figure'
 import { className } from 'postcss-selector-parser';
+import { Link } from "react-router-dom";
 
 const Sectionhome = () => {
 return (  
@@ -38,14 +39,14 @@ return (
         Pagina web desenvolvida como projeto do segundo modulo do bootcamp da Ironhack.
           Tivemos a ideia inicial de construir algo que fosse útil não apenas no quesito de aprendizado como também algo que pudéssemos manter em desenvolvimento, adicionando funcionalidades.
           O projeto baseia-se em 4 paginas onde teremos alguns dados sobre campeonatos de futebol brasileiro e sul-americano.
-          Na aba campeonato brasileiro, teremos  informações sobre pontuação corrente e seus respectivos clubes, repetindo-se nas abas da copa do Brasil, libertadores da américa e copa sul-americana.
+          Na aba <Link className='text-decoration-none fw-bold'> campeonato brasileiro</Link>, teremos  informações sobre pontuação corrente e seus respectivos clubes, repetindo-se nas abas da <Link className='text-decoration-none fw-bold'>copa do Brasil</Link>, <Link className='text-decoration-none fw-bold'>libertadores da américa</Link> e <Link className='text-decoration-none fw-bold'>copa sul-americana</Link>.
           Qualquer dúvida ou sugestão, ficara disponível ao fim da página nossos contatos e o código-fonte do github.
           <hr/>
 
           This page was developed as a project for the second module of the Ironhack bootcamop.
           We had the initial idea of building something that would be useful not only for learning purposes but also something that we could keep in development, adding features.
           The project is based on 4 pages where we will have some data about Brazilian and South American soccer championships.
-          In the Brazilian championship tab, we will have information about the current score and their respective clubs, repeating itself in the tabs of the Brazil Cup, Libertadores da América and South American Cup.
+          In the <Link className='text-decoration-none fw-bold'>Brazilian championship</Link> tab, we will have information about the current score and their respective clubs, repeating itself in the tabs of the <Link className='text-decoration-none fw-bold'>Brazil Cup</Link>, <Link className='text-decoration-none fw-bold'>Libertadores da América</Link> and <Link className='text-decoration-none fw-bold'>South American Cup</Link>.
           Any questions or suggestions, our contacts and the github source code will be available at the end of the page.
         </p>
       </div>
