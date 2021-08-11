@@ -39,7 +39,7 @@ return (
         Pagina web desenvolvida como projeto do segundo modulo do bootcamp da Ironhack.
           Tivemos a ideia inicial de construir algo que fosse útil não apenas no quesito de aprendizado como também algo que pudéssemos manter em desenvolvimento, adicionando funcionalidades.
           O projeto baseia-se em 4 paginas onde teremos alguns dados sobre campeonatos de futebol brasileiro e sul-americano.
-          Na aba <Link  className='text-decoration-none fw-bold'> campeonato brasileiro</Link>, teremos  informações sobre pontuação corrente e seus respectivos clubes, repetindo-se nas abas da <Link className='text-decoration-none fw-bold'>copa do Brasil</Link>, <Link className='text-decoration-none fw-bold'>libertadores da américa</Link> e <Link className='text-decoration-none fw-bold'>copa sul-americana</Link>.
+          Na aba <Link to='/brasileirao' className='text-decoration-none fw-bold'> campeonato brasileiro</Link>, teremos  informações sobre pontuação corrente e seus respectivos clubes, repetindo-se nas abas da <Link className='text-decoration-none fw-bold'>copa do Brasil</Link>, <Link className='text-decoration-none fw-bold'>libertadores da américa</Link> e <Link className='text-decoration-none fw-bold'>copa sul-americana</Link>.
           Qualquer dúvida ou sugestão, ficara disponível ao fim da página nossos contatos e o código-fonte do github.
           <hr/>
 
