@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ImageLogo from '../images/—Pngtree—football team logo_3489120.png'
 import Navbar from 'react-bootstrap/Navbar'
@@ -10,7 +10,7 @@ class Header extends Component {
   render() { 
     return (  
       <Navbar bg="light" expand="lg">
-      <Navbar.Brand className='ps-5' href="#">  <img width="80"  src={ImageLogo}/> </Navbar.Brand>
+      <Navbar.Brand className='ps-5' href="#"> <Link to='/'> <img width="80"  src={ImageLogo}/></Link> </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse className='ps-5' id="navbarScroll">
       <Nav
