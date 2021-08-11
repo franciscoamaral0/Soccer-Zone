@@ -23,7 +23,7 @@ class Viewtables extends Component {
   }
 
   renderTableData= () =>{
-    return this.state.time.map((element, index) =>{
+    return this.state.time.map((element) =>{
       return(
         <tr key={element.time.time_id}>
         <td>{element.posicao}</td>
@@ -38,7 +38,7 @@ class Viewtables extends Component {
   renderTableHeader = () => {
     const headerNames = ['#', '', 'CLUBE', 'PONTOS' ]
     return headerNames.map((element,index) => {
-      return <th key={element.index}>{element}</th>
+      return <th key={index}>{element}</th>
     })
   }
 
