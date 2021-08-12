@@ -1,49 +1,69 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import UnderHeaderImg from './UnderHeaderImg';
-import axios from 'axios';
 import './tablesStyled.css';
+import Apiresponse from '../Api/Apiresponse';
 
 
 class Viewtables extends Component {
   state = {  
-    time :[]
+    time :[],
+    artilharia: []
     
   }
 
   componentDidMount(){
-    axios.get('https://api.api-futebol.com.br/v1/campeonatos/14/tabela',{headers:{'Authorization': 'Bearer test_cd742736980799740abf5ccaa74d2e' }}).then(result =>{
+    Apiresponse.getClassificationTable(2).then(result =>{
       const {data} = result
-      
       this.setState({
         time: data
-        
+      })
+    })
+    Apiresponse.getArtilheiro(2).then(result =>{
+      const {data} = result
+        this.setState({
+        artilharia: data
       })
     })
   }
+        
+      
 
-  renderTableData= () =>{
-    return this.state.time.map((element) =>{
+  renderTableData= (option) =>{
+    return this.state[option].map((element) =>{
       return(
         <tr key={element.time.time_id}>
-        <td>{element.posicao}</td>
-        <td><img width='23px' src={element.time.escudo}/></td>
-        <td>{element.time.nome_popular}</td>
-        <td>{element.aproveitamento}</td>
+          <td>{element.posicao}</td>
+          <td><img width='23px' src={element.time.escudo}/></td>
+          <td>{element.time.nome_popular}</td>
+          <td>{element.pontos}</td>
+          <td>{element.ultimos_jogos.map((result, index)=> 
+          result == 'v'? <span key={index} className="win">●</span> : result == 'e' ? <span key={index} className="draw">●</span>: <span key={index} className="lose">●</span>)}</td>
         </tr>
       )
     })
   }
 
-  renderTableHeader = () => {
-    const headerNames = ['#', '', 'CLUBE', 'PONTOS' ]
+  renderTableHeader = (headerNames = [] ) => {
     return headerNames.map((element,index) => {
       return <th key={index}>{element}</th>
     })
   }
 
+  renderTableTopScore = () => {
+    return this.state.artilharia.map((element, index) =>{
+      return(
+        <tr key={element.atleta.atleta_id}>
+          <td>{index+1}</td>
+          <td><img width='23px' src={element.time.escudo}/></td>
+          <td>{element.atleta.nome_popular}</td>
+          <td>{element.gols}</td>
+        </tr>
+      )
+    })
+  }
 
-  
+    
   render() { 
     return (  
       <>
@@ -58,12 +78,22 @@ class Viewtables extends Component {
             <h2 id='title'>Classificação</h2>
               <table id='clubs'>
                 <tbody>
-                <tr>{this.renderTableHeader()}</tr>
-                  {this.renderTableData()}
+                <tr>{this.renderTableHeader(['#', '', 'CLUBE', 'PONTOS', 'RECENTES'])}</tr>
+                  {this.renderTableData('time')}
                 </tbody>
               </table>
           </div>
-                
+
+          <div>
+            <h2 id='title'>Artilharia</h2>
+            <table id='clubs'>
+            <tbody>
+                <tr>{this.renderTableHeader(['#','TIME', 'NOME', 'GOLS' ])}</tr>
+                  {this.renderTableTopScore()}
+                </tbody>
+              </table>
+              
+          </div>      
 
         
       </div>

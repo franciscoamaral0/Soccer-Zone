@@ -27,3 +27,15 @@
     background-color: #4CAF50;
     color: white;
   }
+
+  .win {
+    color: green;
+  }
+
+  .lose {
+    color: red;
+  }
+
+  .draw {
+    color: grey;
+  }
