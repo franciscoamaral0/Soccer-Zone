@@ -8,6 +8,7 @@ import Apiresponse from '../Api/Apiresponse';
 class Viewtables extends Component {
   state = {  
     time :[],
+    rodada:[],
     artilharia: []
     
   }
@@ -19,6 +20,15 @@ class Viewtables extends Component {
         time: data
       })
     })
+
+    Apiresponse.getNextGames(2).then(result =>{
+      const {data} = result
+      console.log(data)
+      this.setState({
+        rodada: [data]
+      })
+    })
+
     Apiresponse.getArtilheiro(2).then(result =>{
       const {data} = result
         this.setState({
@@ -34,11 +44,25 @@ class Viewtables extends Component {
       return(
         <tr key={element.time.time_id}>
           <td>{element.posicao}</td>
-          <td><img width='23px' src={element.time.escudo}/></td>
+          <td><img width='23px' src={element.time.escudo} alt =''/></td>
           <td>{element.time.nome_popular}</td>
           <td>{element.pontos}</td>
           <td>{element.ultimos_jogos.map((result, index)=> 
-          result == 'v'? <span key={index} className="win">●</span> : result == 'e' ? <span key={index} className="draw">●</span>: <span key={index} className="lose">●</span>)}</td>
+          result === 'v'? <span key={index} className="win">●</span> : result === 'e' ? <span key={index} className="draw">●</span>: <span key={index} className="lose">●</span>)}</td>
+        </tr>
+      )
+    })
+  }
+
+  renderTableNextGames = () => {
+    return this.state.rodada.map((element) => {
+      return (
+        <tr key={element.partidas[0].partida_id}>
+          <td><img width='23px' src={element.partidas[0].time_mandante.escudo} alt =''/></td>
+          <td>{element.partidas[0].placar_mandante}</td>
+          <td>x</td>
+          <td>{element.partidas[0].placar_visitante}</td>
+          <td><img width='23px' src={element.partidas[0].time_visitante.escudo} alt =''/></td>
         </tr>
       )
     })
@@ -55,7 +79,7 @@ class Viewtables extends Component {
       return(
         <tr key={element.atleta.atleta_id}>
           <td>{index+1}</td>
-          <td><img width='23px' src={element.time.escudo}/></td>
+          <td><img width='23px' src={element.time.escudo} alt=''/></td>
           <td>{element.atleta.nome_popular}</td>
           <td>{element.gols}</td>
         </tr>
@@ -80,6 +104,16 @@ class Viewtables extends Component {
                 <tbody>
                 <tr>{this.renderTableHeader(['#', '', 'CLUBE', 'PONTOS', 'RECENTES'])}</tr>
                   {this.renderTableData('time')}
+                </tbody>
+              </table>
+          </div>
+
+          <div>
+            <h2 id='title'>Próxima Rodada</h2>
+              <table id='clubs'>
+                <tbody>
+                <tr>{this.renderTableHeader(['MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE'])}</tr>
+                  {this.renderTableNextGames()}
                 </tbody>
               </table>
           </div>

@@ -15,6 +15,10 @@ class Apiresponse {
 
   }
 
+  getNextGames = (id) => {
+    return this.api.get(`/campeonatos/${id}/rodadas/rodada`)
+  }
+
   getArtilheiro = (id) => {
     return this.api.get(`/campeonatos/${id}/artilharia`)
   }
