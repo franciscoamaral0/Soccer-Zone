@@ -20,15 +20,19 @@ class Apiresponse {
   }
 
   getNextGames = (id) => {
-    return this.api.get(`/times/${id}/partidas/proximas`) // Pertence ao componente NextGame.js
+    return this.api.get(`/times/${id}/partidas/proximas`) 
   }
 
   getNextRounds = (id,rodada) => {
-    return this.api.get(`campeonatos/${id}/rodadas/${rodada}`) // Pertence ao componente ViewTableBrasileirao.js
+    return this.api.get(`campeonatos/${id}/rodadas/${rodada}`) 
   }
 
   getRound = (id) => {
     return this.api.get(`campeonatos/${id}`)
+  }
+
+  getNextStep = (id) => {
+    return this.api.get(`campeonatos/${id}/fases`)
   }
 }
 
