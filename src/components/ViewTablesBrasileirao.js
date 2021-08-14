@@ -3,26 +3,39 @@ import Header from './Header';
 import UnderHeaderImg from './UnderHeaderImg';
 import './tablesStyled.css';
 import Apiresponse from '../Api/Apiresponse';
+import { ThreeSixty } from '@material-ui/icons';
+import {Switch,  Route, Link, Router } from "react-router-dom";
 
 
 class Viewtables extends Component {
   state = {  
     time :[],
-    artilharia: []
+    artilharia: [].slice(0, 10),
+    rodada: [],
     
   }
 
   componentDidMount(){
-    Apiresponse.getClassificationTable(2).then(result =>{
+    Apiresponse.getClassificationTable(10).then(result =>{
       const {data} = result
       this.setState({
         time: data
       })
     })
-    Apiresponse.getArtilheiro(2).then(result =>{
+
+    Apiresponse.getArtilheiro(10).then(result =>{
       const {data} = result
+      console.log(data)
         this.setState({
         artilharia: data
+      })
+    })
+
+    Apiresponse.getNextGames(2).then(result =>{
+      let {data} = result
+      
+      this.setState({
+        rodada: [data]
       })
     })
   }
@@ -33,13 +46,15 @@ class Viewtables extends Component {
     return this.state[option].map((element) =>{
       return(
         <tr key={element.time.time_id}>
-          <td>{element.posicao}</td>
-          <td><img width='23px' src={element.time.escudo}/></td>
-          <td>{element.time.nome_popular}</td>
-          <td>{element.pontos}</td>
-          <td>{element.ultimos_jogos.map((result, index)=> 
-          result == 'v'? <span key={index} className="win">●</span> : result == 'e' ? <span key={index} className="draw">●</span>: <span key={index} className="lose">●</span>)}</td>
-        </tr>
+        
+            <td>{element.posicao}</td>
+            <td><Link to={`/brasileirao/${element.time.time_id}`}><img width='23px' src={element.time.escudo}/> </Link></td>
+            <td><Link className='text-decoration-none' to={`/brasileirao/${element.time.time_id}`}>{element.time.nome_popular}</Link></td>
+            <td>{element.pontos}</td>
+            <td>{element.ultimos_jogos.map((result, index)=> 
+            result == 'v'? <span key={index} className="win">●</span> : result == 'e' ? <span key={index} className="draw">●</span>: <span key={index} className="lose">●</span>)}</td>
+        
+          </tr>
       )
     })
   }
@@ -62,6 +77,9 @@ class Viewtables extends Component {
       )
     })
   }
+
+  
+
 
     
   render() { 
@@ -93,7 +111,9 @@ class Viewtables extends Component {
                 </tbody>
               </table>
               
-          </div>      
+          </div>
+
+         
 
         
       </div>
