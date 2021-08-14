@@ -18,10 +18,10 @@ class Header extends Component {
       style={{ maxHeight: '100px' }}
       navbarScroll
     >
-      <Nav.Link><Link to='/brasileirao' className="text-decoration-none" >Campeonato Brasileiro </Link> </Nav.Link>
-      <Nav.Link><Link to='/copa-do-brasil' className="text-decoration-none">Copa do Brasil</Link></Nav.Link>
-      <Nav.Link><Link to='/libertadores' className="text-decoration-none">Libertadores</Link></Nav.Link>
-      <Nav.Link><Link to='/sul-americana' className="text-decoration-none">Sulamericana</Link></Nav.Link>
+      <Nav.Link as = 'span'><Link to='/brasileirao' className="text-decoration-none" >Campeonato Brasileiro </Link> </Nav.Link>
+      <Nav.Link as = 'span'><Link to='/copa-do-brasil' className="text-decoration-none">Copa do Brasil</Link></Nav.Link>
+      <Nav.Link as = 'span'><Link to='/libertadores' className="text-decoration-none">Libertadores</Link></Nav.Link>
+      <Nav.Link as = 'span'><Link to='/sul-americana' className="text-decoration-none">Sulamericana</Link></Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
