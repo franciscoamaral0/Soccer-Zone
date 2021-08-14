@@ -7,11 +7,12 @@ import { ThreeSixty } from '@material-ui/icons';
 import {Switch,  Route, Link, Router } from "react-router-dom";
 
 
-class Viewtables extends Component {
+class ViewTablesBrasileirao extends Component {
   state = {  
     time :[],
-    artilharia: [].slice(0, 10),
+    artilharia: [],
     rodada: [],
+    rodadaAtual: 0,
     
   }
 
@@ -25,22 +26,28 @@ class Viewtables extends Component {
 
     Apiresponse.getArtilheiro(10).then(result =>{
       const {data} = result
-      console.log(data)
         this.setState({
-        artilharia: data
+        artilharia: data.slice(0,3)
       })
     })
 
-    Apiresponse.getNextGames(2).then(result =>{
-      let {data} = result
-      
-      this.setState({
+    Apiresponse.getNextRounds(10, this.rodadaAtual).then(result =>{
+      const {data} = result
+        this.setState({
         rodada: [data]
+      })
+    })
+    
+    Apiresponse.getRound(10).then(result =>{
+      const currentRound = result.data.rodada_atual.rodada
+      console.log(currentRound)
+        this.setState({
+        rodadaAtual: currentRound
       })
     })
   }
         
-      
+     
 
   renderTableData= (option) =>{
     return this.state[option].map((element) =>{
@@ -76,13 +83,28 @@ class Viewtables extends Component {
         </tr>
       )
     })
+    
   }
 
+  renderTableNextRounds = () => {
+    return this.state.rodada.map((element) => {
+      return (
+        <tr key={element.partidas[0].partida_id}>
+          <td><img width='23px' src={element.partidas[0].time_mandante.escudo} alt =''/></td>
+          <td>{element.partidas[0].placar_mandante}</td>
+          <td>x</td>
+          <td>{element.partidas[0].placar_visitante}</td>
+          <td><img width='23px' src={element.partidas[0].time_visitante.escudo} alt =''/></td>
+        </tr>
+      )
+    })
+  }
   
 
 
     
   render() { 
+    {console.log(this.state.rodadaAtual)} 
     return (  
       <>
       
@@ -110,8 +132,18 @@ class Viewtables extends Component {
                   {this.renderTableTopScore()}
                 </tbody>
               </table>
-              
           </div>
+
+          <div>
+            <h2 id='title'>Próxima Rodada</h2>
+              <table id='clubs'>
+                <tbody>
+                <tr>{this.renderTableHeader(['MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE'])}</tr>
+                  {this.renderTableNextRounds()}
+                </tbody>
+              </table>
+          </div>
+              
 
          
 
@@ -125,7 +157,7 @@ class Viewtables extends Component {
   }
 }
  
-export default Viewtables ;
+export default ViewTablesBrasileirao ;
 
 
  

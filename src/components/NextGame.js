@@ -12,7 +12,7 @@ class Nextgame extends Component {
   componentDidMount(){
     let id = this.props.match.params.code
     Apiresponse.getNextGames(id).then(games =>{
-      const jogos= games.data['campeonato-brasileiro']
+      const jogos = games.data['campeonato-brasileiro']
       console.log(jogos)
       this.setState({
         nextGames: jogos
@@ -40,6 +40,7 @@ class Nextgame extends Component {
       )
     })
   }
+
 
 
 

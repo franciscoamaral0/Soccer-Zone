@@ -5,7 +5,7 @@ class Apiresponse {
     this.api = axios.create({
       baseURL: 'https://api.api-futebol.com.br/v1',
       headers: {
-        'Authorization': 'Bearer Bearer live_3a61e9218300fdd814e9514d4770b7'
+        'Authorization': 'Bearer test_cd742736980799740abf5ccaa74d2e'
       }
     })
   }
@@ -20,7 +20,15 @@ class Apiresponse {
   }
 
   getNextGames = (id) => {
-    return this.api.get(`/times/${id}/partidas/proximas`)
+    return this.api.get(`/times/${id}/partidas/proximas`) // Pertence ao componente NextGame.js
+  }
+
+  getNextRounds = (id,rodada) => {
+    return this.api.get(`campeonatos/${id}/rodadas/${rodada}`) // Pertence ao componente ViewTableBrasileirao.js
+  }
+
+  getRound = (id) => {
+    return this.api.get(`campeonatos/${id}`)
   }
 }
 
