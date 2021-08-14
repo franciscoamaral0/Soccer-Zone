@@ -27,7 +27,7 @@ class ViewTablesBrasileirao extends Component {
     Apiresponse.getArtilheiro(10).then(result =>{
       const {data} = result
         this.setState({
-        artilharia: data.slice(0,3)
+        artilharia: data.slice(0,10)
       })
     })
 
@@ -59,7 +59,7 @@ class ViewTablesBrasileirao extends Component {
             <td><Link className='text-decoration-none' to={`/brasileirao/${element.time.time_id}`}>{element.time.nome_popular}</Link></td>
             <td>{element.pontos}</td>
             <td>{element.ultimos_jogos.map((result, index)=> 
-            result == 'v'? <span key={index} className="win">●</span> : result == 'e' ? <span key={index} className="draw">●</span>: <span key={index} className="lose">●</span>)}</td>
+            result === 'v'? <span key={index} className="win">●</span> : result === 'e' ? <span key={index} className="draw">●</span>: <span key={index} className="lose">●</span>)}</td>
         
           </tr>
       )
