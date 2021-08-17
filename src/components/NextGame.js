@@ -33,7 +33,7 @@ class Nextgame extends Component {
           <td><img width='23px' src={element.time_mandante.escudo} alt =''/></td>
           <td>{element.time_mandante.nome_popular}</td>
           <td>X</td>
-          <td>{element.time_mandante.nome_popular}</td>
+          <td>{element.time_visitante.nome_popular}</td>
           <td><img width='23px' src={element.time_visitante.escudo} alt =''/></td>
           <td>{element.data_realizacao}</td>
         </tr>
