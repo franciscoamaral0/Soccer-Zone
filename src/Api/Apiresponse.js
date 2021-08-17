@@ -1,39 +1,41 @@
-import axios from 'axios'
+import axios from "axios";
+const key = process.env.REACT_APP_SOCCERZONE;
 
 class Apiresponse {
   constructor() {
     this.api = axios.create({
-      baseURL: 'https://api.api-futebol.com.br/v1',
+      baseURL: "https://api.api-futebol.com.br/v1",
       headers: {
-        'Authorization': 'Bearer test_cd742736980799740abf5ccaa74d2e'
-      }
-    })
+        Authorization: `Bearer ${key}`,
+      },
+    });
   }
 
   getClassificationTable = (id) => {
-    return this.api.get(`/campeonatos/${id}/tabela`)
-
-  }
+    return this.api.get(`/campeonatos/${id}/tabela`);
+  };
 
   getArtilheiro = (id) => {
-    return this.api.get(`/campeonatos/${id}/artilharia`)
-  }
+    return this.api.get(`/campeonatos/${id}/artilharia`);
+  };
 
   getNextGames = (id) => {
-    return this.api.get(`/times/${id}/partidas/proximas`) 
-  }
+    return this.api.get(`/times/${id}/partidas/proximas`);
+  };
 
-  getNextRounds = (id,rodada) => {
-    return this.api.get(`campeonatos/${id}/rodadas/${rodada}`) 
-  }
+  getNextRounds = (id, rodada) => {
+    console.log(id, "test");
+    console.log(rodada, "test");
+    return this.api.get(`/campeonatos/${id}/rodadas/${rodada}`);
+  };
 
   getRound = (id) => {
-    return this.api.get(`campeonatos/${id}`)
-  }
+    return this.api.get(`/campeonatos/${id}`);
+  };
 
-  getNextStep = (id) => {
-    return this.api.get(`campeonatos/${id}/fases`)
-  }
+  getNextStepCopaBr = (id, fase) => {
+    return this.api.get(`/campeonatos/${id}/fases/${fase}`);
+  };
 }
 
-export default new Apiresponse()
+export default new Apiresponse();
