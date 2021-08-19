@@ -38,7 +38,7 @@ class ViewTableLibertadores extends Component {
       return (
         <tr key={element.atleta.atleta_id}>
           <td>{index + 1}</td>
-          <td><img width='23px' src={element.time.escudo} /></td>
+          <td><img width='35px' src={element.time.escudo} /></td>
           <td>{element.atleta.nome_popular}</td>
           <td>{element.gols}</td>
         </tr>
@@ -52,13 +52,13 @@ class ViewTableLibertadores extends Component {
       console.log(element)
       return (
         <tr key={element.fase_id}>
-          <td><img width='23px' src={element.partida_ida.time_mandante.escudo} alt={element.partida_ida.time_mandante.nome_popular} /></td>
+          <td><img width='35px' src={element.partida_ida.time_mandante.escudo} alt={element.partida_ida.time_mandante.nome_popular} /></td>
           <td>{element.partida_ida.time_mandante.nome_popular}</td>
           <td>{element.partida_ida.placar_mandante}</td>
           <td>x</td>
           <td>{element.partida_ida.placar_visitante}</td>
           <td>{element.partida_ida.time_visitante.nome_popular}</td>
-          <td><img width='23px' src={element.partida_ida.time_visitante.escudo} alt={element.partida_ida.time_visitante.nome_popular} /></td>
+          <td><img width='35px' src={element.partida_ida.time_visitante.escudo} alt={element.partida_ida.time_visitante.nome_popular} /></td>
           <td>{element.partida_ida.data_realizacao} - {element.partida_ida.hora_realizacao}</td>
         </tr>
       )
@@ -72,13 +72,13 @@ class ViewTableLibertadores extends Component {
 
       return (
         <tr key={element.fase_id}>
-          <td><img width='23px' src={element.partida_volta.time_mandante.escudo} alt={element.partida_volta.time_mandante.nome_popular} /></td>
+          <td><img width='35px' src={element.partida_volta.time_mandante.escudo} alt={element.partida_volta.time_mandante.nome_popular} /></td>
           <td>{element.partida_volta.time_mandante.nome_popular}</td>
           <td>{element.partida_volta.placar_mandante}</td>
           <td>x</td>
           <td>{element.partida_volta.placar_visitante}</td>
-          <td>{element.partida_volta.time_visitante.nome_popular}</td>
-          <td><img width='23px' src={element.partida_volta.time_visitante.escudo} alt={element.partida_volta.time_visitante.nome_popular} /></td>
+          <td >{element.partida_volta.time_visitante.nome_popular}</td>
+          <td><img width='35px' src={element.partida_volta.time_visitante.escudo} alt={element.partida_volta.time_visitante.nome_popular} /></td>
           <td><td>{element.partida_volta.data_realizacao} -  {element.partida_volta.hora_realizacao}</td></td>
         </tr>
       )
@@ -93,9 +93,9 @@ class ViewTableLibertadores extends Component {
         <UnderHeaderImg children='Libertadores' />
         <div style={{ backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")` }} className='  p-5'>
           <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
-            <div className=' w-100 d-flex justify-content-evenly'>
+            <div className=' w-100 d-flex justify-content-evenly flex-wrap'>
 
-              <div >
+              <div style={{ fontSize: '1.4vw' }}>
                 <h2 id='title'>Próxima Fase - Jogo Ida</h2>
                 <table id='clubs'>
                   <tbody>
@@ -115,7 +115,7 @@ class ViewTableLibertadores extends Component {
 
 
 
-              <div>
+              <div style={{ fontSize: '1.4vw' }} className = 'pt-5'>
                 <h2 id='title'>Artilharia</h2>
                 <table id='clubs'>
                   <tbody>
