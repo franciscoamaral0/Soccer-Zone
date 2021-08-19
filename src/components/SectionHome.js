@@ -1,6 +1,4 @@
 import React from 'react';
-import Figure from 'react-bootstrap/Figure'
-import { className } from 'postcss-selector-parser';
 import { Link } from "react-router-dom";
 import brasileiraoLogo from '../images/brasileiraoLogo.png'
 import copaBrasilLogo from '../images/copaBrasilLogo.png'
