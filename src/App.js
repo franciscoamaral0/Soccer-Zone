@@ -8,6 +8,8 @@ import ViewTablesBrasileirao from './components/ViewTablesBrasileirao';
 import Footer from './components/Footer'
 import Nextgame from './components/NextGame';
 import ViewTableCopaBrasil from './components/ViewTablesCopaBrasil';
+import ViewTableLibertadores from './components/ViewTablesLibertadores';
+import ViewTableSulamericana from './components/ViewTablesSulamericana';
 
 
 
@@ -21,8 +23,10 @@ function App() {
         <Sectionhome/>
        <Footer/>
       </Route>
-      <Route path='/brasileirao' component={ViewTablesBrasileirao} exact />
-      <Route path='/copa-do-brasil' component={ViewTableCopaBrasil} exact />
+      <Route path='/brasileirao' component={ViewTablesBrasileirao} exact/>
+      <Route path='/copa-do-brasil' component={ViewTableCopaBrasil}/>
+      <Route path='/libertadores' component={ViewTableLibertadores}/>
+      <Route path='/sul-americana' component={ViewTableSulamericana}/>
       <Route path='/brasileirao/:code' component={Nextgame}/>
     </Switch>
       

@@ -10,7 +10,7 @@ class Header extends Component {
   render() { 
     return (  
       <Navbar bg="light" expand="lg">
-      <Navbar.Brand className='ps-5' href="#"> <Link to='/'> <img width="80"  src={ImageLogo}/></Link> </Navbar.Brand>
+      <Navbar.Brand className='ps-5' href="#"> <Link to='/'> <img width="80" src={ImageLogo}/></Link> </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse className='ps-5' id="navbarScroll">
       <Nav
