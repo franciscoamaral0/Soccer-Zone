@@ -30,10 +30,10 @@ return (
         </div>
 
         <div className='d-flex justify-content-evenly flex-wrap pt-5'>
-          <Link to='/brasileirao'><img height='120px' src={brasileiraoLogo} /></Link>
-          <Link to='/copa-do-brasil'><img height='120px' src={copaBrasilLogo}/></Link>
-          <Link to='/libertadores'><img height='120px' src={libertaLogo} /></Link>
-          <Link to='/sul-americana'><img height='120px' src={sulAmericanaLogo}/></Link>
+          <Link to='/brasileirao'><img height='120px' src={brasileiraoLogo} alt='Logo campeonato brasileiro' /></Link>
+          <Link to='/copa-do-brasil'><img height='120px' src={copaBrasilLogo} alt='Logo copa do Brasil'/></Link>
+          <Link to='/libertadores'><img height='120px' src={libertaLogo} alt='Logo Libertadores'/></Link>
+          <Link to='/sul-americana'><img height='120px' src={sulAmericanaLogo} alt='Logo Sul Americana'/></Link>
         </div>
       </div>
     </div>

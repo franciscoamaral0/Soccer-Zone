@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header';
-import {Switch,  Route, Link, Router } from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UnderHeaderImg from './components/UnderHeaderImg'
 import Sectionhome from './components/SectionHome';
