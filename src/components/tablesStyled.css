@@ -39,3 +39,30 @@
   .draw {
     color: grey;
   }
+
+  @media (max-width: 400px) {
+    td {font-size: 0.5rem; }
+    td a { font-size: 0.5rem; }
+    td img{ width: 15px;}
+    th { font-size: 0.5rem; }
+
+}
+  @media (min-width: 401px) {
+    td{ font-size: 0.8rem;}
+    td a { font-size: 0.8rem; }
+    td img{ width: 23px;}
+    th { font-size: 0.8rem; }
+
+}
+  @media (min-width: 992px) {
+    td  {font-size: 1rem;}
+    td a { font-size: 1rem; }
+    td img{ width: 30px;}
+    th { font-size: 1rem; }
+}
+  @media (min-width: 1200px) {
+    td  {font-size: 1.1rem;}
+    td a { font-size: 1.1rem; }
+    td img{ width: 34px;}
+    th { font-size: 1.1em; }
+}
