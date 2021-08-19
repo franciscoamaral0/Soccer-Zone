@@ -107,6 +107,16 @@ class ViewTablesBrasileirao extends Component {
               </div>
 
               <div>
+                <h2 id='title'>Próxima Rodada</h2>
+                <table id='clubs'>
+                  <tbody>
+                    <tr>{this.renderTableHeader(['MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE'])}</tr>
+                    {this.renderTableNextRounds()}
+                  </tbody>
+                </table>
+              </div>
+              
+              <div>
                 <h2 id='title'>Artilharia</h2>
                 <table id='clubs'>
                   <tbody>
@@ -116,15 +126,8 @@ class ViewTablesBrasileirao extends Component {
                 </table>
               </div>
 
-              <div>
-                <h2 id='title'>Próxima Rodada</h2>
-                <table id='clubs'>
-                  <tbody>
-                    <tr>{this.renderTableHeader(['MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE'])}</tr>
-                    {this.renderTableNextRounds()}
-                  </tbody>
-                </table>
-              </div>
+
+
             </div>
           </div>
         </div>

@@ -5,7 +5,8 @@ import './tablesStyled.css';
 import Apiresponse from '../Api/Apiresponse';
 
 
-class ViewTableCopaBrasil extends Component {
+
+class ViewTableLibertadores extends Component {
   state = {
     time: [],
     artilharia: [],
@@ -13,9 +14,9 @@ class ViewTableCopaBrasil extends Component {
   }
 
   componentDidMount = async () => {
-    const { data: getArtilheiro } = await Apiresponse.getArtilheiro(2)
-    const { data: getRound } = await Apiresponse.getRound(2)
-    const { data: getNextStep } = await Apiresponse.getNextStep(2, getRound.fase_atual.fase_id)
+    const { data: getArtilheiro } = await Apiresponse.getArtilheiro(7)
+    const { data: getRound } = await Apiresponse.getRound(7)
+    const { data: getNextStep } = await Apiresponse.getNextStep(7, getRound.fase_atual.fase_id)
     this.setState({
       time: [],
       artilharia: getArtilheiro.slice(0, 10),
@@ -49,8 +50,6 @@ class ViewTableCopaBrasil extends Component {
   renderTableNextRounds = () => {
     return this.state.rodada.map((element) => {
       console.log(element)
-
-
       return (
         <tr key={element.fase_id}>
           <td><img width='23px' src={element.partida_ida.time_mandante.escudo} alt={element.partida_ida.time_mandante.nome_popular} /></td>
@@ -91,7 +90,7 @@ class ViewTableCopaBrasil extends Component {
     return (
       <>
         <Header />
-        <UnderHeaderImg children='Copa do Brasil' />
+        <UnderHeaderImg children='Libertadores' />
         <div style={{ backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")` }} className='  p-5'>
           <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
             <div className=' w-100 d-flex justify-content-evenly'>
@@ -140,4 +139,4 @@ class ViewTableCopaBrasil extends Component {
   }
 }
 
-export default ViewTableCopaBrasil
+export default ViewTableLibertadores

@@ -5,7 +5,7 @@ import './tablesStyled.css';
 import Apiresponse from '../Api/Apiresponse';
 
 
-class ViewTableCopaBrasil extends Component {
+class ViewTableSulamericana extends Component {
   state = {
     time: [],
     artilharia: [],
@@ -13,9 +13,9 @@ class ViewTableCopaBrasil extends Component {
   }
 
   componentDidMount = async () => {
-    const { data: getArtilheiro } = await Apiresponse.getArtilheiro(2)
-    const { data: getRound } = await Apiresponse.getRound(2)
-    const { data: getNextStep } = await Apiresponse.getNextStep(2, getRound.fase_atual.fase_id)
+    const { data: getArtilheiro } = await Apiresponse.getArtilheiro(8)
+    const { data: getRound } = await Apiresponse.getRound(8)
+    const { data: getNextStep } = await Apiresponse.getNextStep(8, getRound.fase_atual.fase_id)
     this.setState({
       time: [],
       artilharia: getArtilheiro.slice(0, 10),
@@ -80,7 +80,7 @@ class ViewTableCopaBrasil extends Component {
           <td>{element.partida_volta.placar_visitante}</td>
           <td>{element.partida_volta.time_visitante.nome_popular}</td>
           <td><img width='23px' src={element.partida_volta.time_visitante.escudo} alt={element.partida_volta.time_visitante.nome_popular} /></td>
-          <td><td>{element.partida_volta.data_realizacao} -  {element.partida_volta.hora_realizacao}</td></td>
+          <td><td>{element.partida_volta.data_realizacao} - {element.partida_volta.hora_realizacao}</td></td>
         </tr>
       )
     })
@@ -91,7 +91,7 @@ class ViewTableCopaBrasil extends Component {
     return (
       <>
         <Header />
-        <UnderHeaderImg children='Copa do Brasil' />
+        <UnderHeaderImg children='Sul-Americana'/>
         <div style={{ backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")` }} className='  p-5'>
           <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
             <div className=' w-100 d-flex justify-content-evenly'>
@@ -140,4 +140,4 @@ class ViewTableCopaBrasil extends Component {
   }
 }
 
-export default ViewTableCopaBrasil
+export default ViewTableSulamericana
