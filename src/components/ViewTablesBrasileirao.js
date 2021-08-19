@@ -33,7 +33,7 @@ class ViewTablesBrasileirao extends Component {
       return (
         <tr key={element.time.time_id}>
           <td>{element.posicao}</td>
-          <td><Link to={`/brasileirao/${element.time.time_id}`}><img width='23px' src={element.time.escudo} /> </Link></td>
+          <td><Link to={`/brasileirao/${element.time.time_id}`}><img width='35px' src={element.time.escudo} /> </Link></td>
           <td><Link className='text-decoration-none' to={`/brasileirao/${element.time.time_id}`}>{element.time.nome_popular}</Link></td>
           <td>{element.pontos}</td>
           <td>{element.ultimos_jogos.map((result, index) =>
@@ -54,7 +54,7 @@ class ViewTablesBrasileirao extends Component {
       return (
         <tr key={element.atleta.atleta_id}>
           <td>{index + 1}</td>
-          <td><img width='23px' src={element.time.escudo} /></td>
+          <td><img width='35px' src={element.time.escudo} /></td>
           <td>{element.atleta.nome_popular}</td>
           <td>{element.gols}</td>
         </tr>
@@ -77,11 +77,11 @@ class ViewTablesBrasileirao extends Component {
       console.log(element)
       return (
         <tr key={element.partida_id}>
-          <td><img width='23px' src={element.time_mandante.escudo} alt='' /></td>
+          <td><img width='35px' src={element.time_mandante.escudo} alt='' /></td>
           <td>{element.placar_mandante}</td>
           <td>x</td>
           <td>{element.placar_visitante}</td>
-          <td><img width='23px' src={element.time_visitante.escudo} alt='' /></td>
+          <td><img width='35px' src={element.time_visitante.escudo} alt='' /></td>
         </tr>
       )
     })
@@ -94,9 +94,9 @@ class ViewTablesBrasileirao extends Component {
         <UnderHeaderImg children='Brasileirão' />
         <div style={{ backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")` }} className='  p-5'>
           <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
-            <div className=' w-100 d-flex justify-content-evenly'>
+            <div style={{ fontSize: '1.4vw' }} className=' w-100 d-flex justify-content-evenly flex-wrap'>
 
-              <div>
+              <div className= 'pb-5'>
                 <h2 id='title'>Classificação</h2>
                 <table id='clubs'>
                   <tbody>
@@ -106,7 +106,7 @@ class ViewTablesBrasileirao extends Component {
                 </table>
               </div>
 
-              <div>
+              <div className= 'pb-5'>
                 <h2 id='title'>Próxima Rodada</h2>
                 <table id='clubs'>
                   <tbody>
@@ -116,7 +116,7 @@ class ViewTablesBrasileirao extends Component {
                 </table>
               </div>
               
-              <div>
+              <div className= 'pb-5'>
                 <h2 id='title'>Artilharia</h2>
                 <table id='clubs'>
                   <tbody>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import ImageLogo from '../images/—Pngtree—football team logo_3489120.png'
+import { Link, NavLink } from 'react-router-dom';
+import ImageLogo from '../images/03b0b151b42a829d87b3707368ec601d-removebg-preview.png'
 import Navbar from 'react-bootstrap/Navbar'
+import '../App.css';
 
 
 class Header extends Component {
@@ -10,7 +11,7 @@ class Header extends Component {
   render() { 
     return (  
       <Navbar bg="light" expand="lg">
-      <Navbar.Brand className='ps-5' href="#"> <Link to='/'> <img width="80" src={ImageLogo}/></Link> </Navbar.Brand>
+      <Navbar.Brand className='ps-5' href="#"> <Link to='/'> <img width="100" src={ImageLogo}/></Link> </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse className='ps-5' id="navbarScroll">
       <Nav
@@ -18,10 +19,10 @@ class Header extends Component {
       style={{ maxHeight: '100px' }}
       navbarScroll
     >
-      <Nav.Link><Link to='/brasileirao' className="text-decoration-none" >Campeonato Brasileiro </Link> </Nav.Link>
-      <Nav.Link><Link to='/copa-do-brasil' className="text-decoration-none">Copa do Brasil</Link></Nav.Link>
-      <Nav.Link><Link to='/libertadores' className="text-decoration-none">Libertadores</Link></Nav.Link>
-      <Nav.Link><Link to='/sul-americana' className="text-decoration-none">Sulamericana</Link></Nav.Link>
+      <Nav.Link><NavLink to='/brasileirao' activeClassName="is-active" className="text-dark text-decoration-none test" >Campeonato Brasileiro </NavLink> </Nav.Link>
+      <Nav.Link><NavLink to='/copa-do-brasil'  activeClassName="is-active" className="text-dark text-decoration-none test">Copa do Brasil</NavLink></Nav.Link>
+      <Nav.Link><NavLink to='/libertadores'  activeClassName="is-active" className="text-dark text-decoration-none test">Libertadores</NavLink></Nav.Link>
+      <Nav.Link><NavLink to='/sul-americana'  activeClassName="is-active" className="text-dark text-decoration-none test ">Sulamericana</NavLink></Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
