@@ -14,15 +14,20 @@ class ViewTableLibertadores extends Component {
   }
 
   componentDidMount = async () => {
-    const { data: getArtilheiro } = await Apiresponse.getArtilheiro(7)
-    const { data: getRound } = await Apiresponse.getRound(7)
-    const { data: getNextStep } = await Apiresponse.getNextStep(7, getRound.fase_atual.fase_id)
-    this.setState({
-      time: [],
-      artilharia: getArtilheiro.slice(0, 10),
-      rodada: getNextStep.chaves,
-    })
+    try{
+      const { data: getArtilheiro } = await Apiresponse.getArtilheiro(7)
+      const { data: getRound } = await Apiresponse.getRound(7)
+      const { data: getNextStep } = await Apiresponse.getNextStep(7, getRound.fase_atual.fase_id)
+      this.setState({
+        time: [],
+        artilharia: getArtilheiro.slice(0, 10),
+        rodada: getNextStep.chaves,
+      })
+    } catch(error){
+        console.error(error)
+    }
   }
+
 
 
 
@@ -38,7 +43,7 @@ class ViewTableLibertadores extends Component {
       return (
         <tr key={element.atleta.atleta_id}>
           <td>{index + 1}</td>
-          <td><img width='35px' src={element.time.escudo} /></td>
+          <td><img width='35px' src={element.time.escudo} alt={element.atleta.nome_popular}/></td>
           <td>{element.atleta.nome_popular}</td>
           <td>{element.gols}</td>
         </tr>

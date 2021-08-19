@@ -16,23 +16,29 @@ class ViewTablesBrasileirao extends Component {
 
 
   componentDidMount = async () => {
-    const { data: getClassificationTable } = await Apiresponse.getClassificationTable(10)
-    const { data: getArtilheiro } = await Apiresponse.getArtilheiro(10)
-    const { data: getRounds } = await Apiresponse.getRound(10)
-    const { data: getNextRounds } = await Apiresponse.getNextRounds(10, getRounds.rodada_atual.rodada)
-    this.setState({
-      time: getClassificationTable,
-      artilharia: getArtilheiro.slice(0,10),
-      rodada: getNextRounds.partidas,
-    })
+    try{
+      const { data: getClassificationTable } = await Apiresponse.getClassificationTable(10)
+      const { data: getArtilheiro } = await Apiresponse.getArtilheiro(10)
+      const { data: getRounds } = await Apiresponse.getRound(10)
+      const { data: getNextRounds } = await Apiresponse.getNextRounds(10, getRounds.rodada_atual.rodada)
+      this.setState({
+        time: getClassificationTable,
+        artilharia: getArtilheiro.slice(0,10),
+        rodada: getNextRounds.partidas,
+      })
+
+    } catch(error) {
+        console.error(error)}
+    
   }
+
 
   renderTableData = () => {
     return this.state.time.map((element) => {
       return (
         <tr key={element.time.time_id}>
           <td>{element.posicao}</td>
-          <td><Link to={`/brasileirao/${element.time.time_id}`}><img src={element.time.escudo} /> </Link></td>
+          <td><Link to={`/brasileirao/${element.time.time_id}`}><img src={element.time.escudo} alt={element.time.nome_popular}/> </Link></td>
           <td><Link className='text-decoration-none' to={`/brasileirao/${element.time.time_id}`}>{element.time.nome_popular}</Link></td>
           <td>{element.pontos}</td>
           <td>{element.ultimos_jogos.map((result, index) =>
@@ -53,7 +59,7 @@ class ViewTablesBrasileirao extends Component {
       return (
         <tr key={element.atleta.atleta_id}>
           <td>{index + 1}</td>
-          <td><img width='35px' src={element.time.escudo} /></td>
+          <td><img width='35px' src={element.time.escudo} alt={element.atleta.nome_popular}/></td>
           <td>{element.atleta.nome_popular}</td>
           <td>{element.gols}</td>
         </tr>
@@ -76,11 +82,11 @@ class ViewTablesBrasileirao extends Component {
       console.log(element)
       return (
         <tr key={element.partida_id}>
-          <td><img width='35px' src={element.time_mandante.escudo} alt='' /></td>
+          <td><img width='35px' src={element.time_mandante.escudo} alt={element.time_mandante.nome_popular} /></td>
           <td>{element.placar_mandante}</td>
           <td>x</td>
           <td>{element.placar_visitante}</td>
-          <td><img width='35px' src={element.time_visitante.escudo} alt='' /></td>
+          <td><img width='35px' src={element.time_visitante.escudo} alt={element.time_visitante.nome_popular} /></td>
         </tr>
       )
     })
