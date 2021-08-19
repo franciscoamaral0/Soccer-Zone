@@ -1,8 +1,4 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import ImageCarrousel from '../images/borussia-dortmund-4k-fans-tribune-bundesliga (1).jpg'
-import Figure from 'react-bootstrap/Figure'
-import { className } from 'postcss-selector-parser';
 import { Link } from "react-router-dom";
 import brasileiraoLogo from '../images/brasileiraoLogo.png'
 import copaBrasilLogo from '../images/copaBrasilLogo.png'
