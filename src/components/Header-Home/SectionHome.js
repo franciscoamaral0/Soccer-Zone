@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import brasileiraoLogo from '../images/brasileiraoLogo.png'
-import copaBrasilLogo from '../images/copaBrasilLogo.png'
-import libertaLogo from '../images/libertaLogo.png'
-import sulAmericanaLogo from '../images/sulamericanaLogo.png'
+import brasileiraoLogo from '../../images/brasileiraoLogo.png'
+import copaBrasilLogo from '../../images/copaBrasilLogo.png'
+import libertaLogo from '../../images/libertaLogo.png'
+import sulAmericanaLogo from '../../images/sulamericanaLogo.png'
 
 
 
@@ -11,7 +11,7 @@ const Sectionhome = () => {
 return (  
   <div style={{backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")`}} className='  p-5'>
     <div className='shadow-sm p-5 bg-body rounded'>
-      <div className='d-flex flex-column '  >
+      <div className='d-flex flex-column'>
         <div>
           <p className='fs-5 ps-5 text-wrap' style={{fontFamily: 'roboto'}}>
           Pagina web desenvolvida como projeto do segundo modulo do bootcamp da Ironhack.

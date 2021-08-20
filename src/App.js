@@ -1,15 +1,16 @@
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Header-Home/Header.js';
 import {Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UnderHeaderImg from './components/UnderHeaderImg'
-import Sectionhome from './components/SectionHome';
-import ViewTablesBrasileirao from './components/ViewTablesBrasileirao';
-import Footer from './components/Footer'
-import Nextgame from './components/NextGame';
-import ViewTableCopaBrasil from './components/ViewTablesCopaBrasil';
-import ViewTableLibertadores from './components/ViewTablesLibertadores';
-import ViewTableSulamericana from './components/ViewTablesSulamericana';
+import UnderHeaderImg from './components/Header-Home/UnderHeaderImg'
+import Sectionhome from './components/Header-Home/SectionHome';
+import ViewTablesBrasileirao from './components/Brasileirao/ViewTablesBrasileirao';
+import Footer from './components/Footer/Footer'
+import Nextgame from './components/Brasileirao/NextGame';
+import ViewTableCopaBrasil from './components/CopaBr-Liberta-SulAmericana/ViewTablesCopaBrasil';
+import ViewTableLibertadores from './components/CopaBr-Liberta-SulAmericana/ViewTablesLibertadores';
+import ViewTableSulamericana from './components/CopaBr-Liberta-SulAmericana/ViewTablesSulamericana';
+
 
 
 

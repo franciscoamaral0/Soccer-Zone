@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import UnderHeaderImg from './UnderHeaderImg';
-import './tablesStyled.css';
-import Apiresponse from '../Api/Apiresponse';
+import Header from '../Header-Home/Header';
+import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
+import Apiresponse from '../../Api/Apiresponse';
+import { Table } from '../Styles/tableStyled';
 
 
 class ViewTableSulamericana extends Component {
@@ -103,32 +103,32 @@ class ViewTableSulamericana extends Component {
 
               <div >
                 <h2 id='title'>Próxima Fase - Jogo Ida</h2>
-                <table id='clubs'>
+                <Table id='clubs'>
                   <tbody>
                     <tr>{this.renderTableHeader(['#', 'MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE', '#', 'Data Prevista'])}</tr>
                     {this.renderTableNextRounds()}
                   </tbody>
-                </table>
+                </Table>
 
                 <h2 className='mt-5' id='title'>Próxima Fase - Jogo Volta</h2>
-                <table id='clubs'>
+                <Table id='clubs'>
                   <tbody>
                     <tr>{this.renderTableHeader(['#', 'MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE', '#', 'Data Prevista'])}</tr>
                     {this.renderTableNextRoundsReturnGame()}
                   </tbody>
-                </table>
+                </Table>
               </div>
 
 
 
               <div className='pt-5'>
                 <h2 id='title'>Artilharia</h2>
-                <table id='clubs'>
+                <Table id='clubs'>
                   <tbody>
                     <tr>{this.renderTableHeader(['#', 'TIME', 'NOME', 'GOLS'])}</tr>
                     {this.renderTableTopScore()}
                   </tbody>
-                </table>
+                </Table>
               </div>
 
 

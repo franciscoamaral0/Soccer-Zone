@@ -1,15 +1,14 @@
 .is-active{
     font-weight: bold;
-    
-  }
-
-  .test{ 
-    font-size: 19px;
-}
   
-  .test:hover{
-    font-size: 25px;
-    
-    
-  }
- 
+}
+.test{ 
+  font-size: 19px;
+}
+.test:hover{
+  font-size: 25px;
+}
+
+
+
+

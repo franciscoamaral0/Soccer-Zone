@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import ImageLogo from '../images/03b0b151b42a829d87b3707368ec601d-removebg-preview.png'
+import ImageLogo from '../../images/03b0b151b42a829d87b3707368ec601d-removebg-preview.png'
 import Navbar from 'react-bootstrap/Navbar'
-import '../App.css';
+import '../../App';
 
 
 class Header extends Component {

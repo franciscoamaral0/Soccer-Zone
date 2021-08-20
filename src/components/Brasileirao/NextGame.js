@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Apiresponse from '../Api/Apiresponse';
-import Header from './Header';
-import UnderHeaderImg from './UnderHeaderImg';
+import Apiresponse from '../../Api/Apiresponse';
+import Header from '../Header-Home/Header';
+import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
+import {Table} from '../Styles/tableStyled'
 
 
 class Nextgame extends Component {
@@ -55,12 +56,12 @@ class Nextgame extends Component {
               <div style={{ fontSize: '1.4vw' }} className=' w-100 d-flex justify-content-center'>
                 <div>
                   <h2 id='title'>Proximas Partidas</h2>
-                    <table id='clubs'>
+                    <Table>
                       <tbody>
                         <tr>{this.renderTableHeader(['#', 'TIME', 'X', 'TIME', '#', 'DATA PREVISTA'])}</tr>
                           {this.renderTableNextGames()}
                       </tbody>
-                    </table>
+                    </Table>
                 </div>
               </div>
             </div>
