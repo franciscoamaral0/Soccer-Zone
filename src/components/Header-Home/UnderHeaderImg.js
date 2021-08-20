@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImageUnderHeader from '../images/imageHight.jpg'
+import ImageUnderHeader from '../../images/imageHight.jpg'
 import Box from '@material-ui/core/Box';
 
 class UnderHeaderImg extends Component {

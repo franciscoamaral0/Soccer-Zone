@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import UnderHeaderImg from './UnderHeaderImg';
-import './tablesStyled.css';
-import Apiresponse from '../Api/Apiresponse';
+import Header from '../Header-Home/Header';
+import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
+import Apiresponse from '../../Api/Apiresponse';
 import {Link, } from "react-router-dom";
+import {Table, CheckColor} from '../Styles/tableStyled'
 
 
 class ViewTablesBrasileirao extends Component {
@@ -42,7 +42,7 @@ class ViewTablesBrasileirao extends Component {
           <td><Link className='text-decoration-none' to={`/brasileirao/${element.time.time_id}`}>{element.time.nome_popular}</Link></td>
           <td>{element.pontos}</td>
           <td>{element.ultimos_jogos.map((result, index) =>
-            result === 'v' ? <span key={index} className="win">●</span> : result === 'e' ? <span key={index} className="draw">●</span> : <span key={index} className="lose">●</span>)}</td>
+            <CheckColor key={index} result={result}>●</CheckColor>)}</td>
         </tr>
       )
     })
@@ -69,17 +69,8 @@ class ViewTablesBrasileirao extends Component {
 
 
 
-
-
-
-
-
-
-
-
   renderTableNextRounds = () => {
     return this.state.rodada.map((element) => {
-      console.log(element)
       return (
         <tr key={element.partida_id}>
           <td><img width='35px' src={element.time_mandante.escudo} alt={element.time_mandante.nome_popular} /></td>
@@ -103,32 +94,32 @@ class ViewTablesBrasileirao extends Component {
 
               <div className= ' pb-5'>
                 <h2 id='title'>Classificação</h2>
-                <table id='clubs'>
+                <Table>
                   <tbody>
                     <tr>{this.renderTableHeader(['#', '', 'CLUBE', 'PONTOS', 'RECENTES'])}</tr>
                     {this.renderTableData('time')}
                   </tbody>
-                </table>
+                </Table>
               </div>
 
               <div className= 'pb-5'>
                 <h2 id='title'>Próxima Rodada</h2>
-                <table id='clubs'>
+                <Table>
                   <tbody>
                     <tr>{this.renderTableHeader(['MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE'])}</tr>
                     {this.renderTableNextRounds()}
                   </tbody>
-                </table>
+                </Table>
               </div>
               
               <div className= 'pb-5'>
                 <h2 id='title'>Artilharia</h2>
-                <table id='clubs'>
+                <Table>
                   <tbody>
                     <tr>{this.renderTableHeader(['#', 'TIME', 'NOME', 'GOLS'])}</tr>
                     {this.renderTableTopScore()}
                   </tbody>
-                </table>
+                </Table>
               </div>
             </div>
           </div>
@@ -138,7 +129,15 @@ class ViewTablesBrasileirao extends Component {
   }
 }
 
+
+
 export default ViewTablesBrasileirao;
+
+
+
+
+
+
 
 
 
