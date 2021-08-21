@@ -10,6 +10,7 @@ import Nextgame from './components/Brasileirao/NextGame';
 import ViewTableCopaBrasil from './components/CopaBr-Liberta-SulAmericana/ViewTablesCopaBrasil';
 import ViewTableLibertadores from './components/CopaBr-Liberta-SulAmericana/ViewTablesLibertadores';
 import ViewTableSulamericana from './components/CopaBr-Liberta-SulAmericana/ViewTablesSulamericana';
+import ContactForm from './components/Contact/ContactForm'
 
 
 
@@ -29,6 +30,7 @@ function App() {
       <Route path='/copa-do-brasil' component={ViewTableCopaBrasil}/>
       <Route path='/libertadores' component={ViewTableLibertadores}/>
       <Route path='/sul-americana' component={ViewTableSulamericana}/>
+      <Route path='/contato' component={ContactForm}/>
       <Route path='/brasileirao/:code' component={Nextgame}/>
     </Switch>
       

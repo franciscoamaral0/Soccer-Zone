@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import '../../App';
 
 
+
 class Header extends Component {
   state = {  }
   render() { 
@@ -23,6 +24,7 @@ class Header extends Component {
       <Nav.Link><NavLink to='/copa-do-brasil'  activeClassName="is-active" className="text-dark text-decoration-none test">Copa do Brasil</NavLink></Nav.Link>
       <Nav.Link><NavLink to='/libertadores'  activeClassName="is-active" className="text-dark text-decoration-none test">Libertadores</NavLink></Nav.Link>
       <Nav.Link><NavLink to='/sul-americana'  activeClassName="is-active" className="text-dark text-decoration-none test ">Sulamericana</NavLink></Nav.Link>
+      <Nav.Link><NavLink to='/contato'  activeClassName="is-active" className="text-dark text-decoration-none test ">Contato</NavLink></Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
