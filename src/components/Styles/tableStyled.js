@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Snackbar } from '@material-ui/core';
+import TableLoader from '../ReactContentLoader/ReactLoader';
 
 const Table = styled.table`
   text-align:center;
@@ -117,7 +119,25 @@ const CheckColor = styled.span`
 color: ${props=> props.result === 'v' ? 'green' : props.result === 'e' ? 'gray' : 'red'}
 ` 
 
+const StyledSnackbar = styled(Snackbar)`
+  top: 320px;
+  right: 94px;
+  display: inline;
+
+  `
+  const tableLoaderResponsive = styled(TableLoader)`
+    @media (max-width: 400px){
+      width: 300px;
+      height: 135px;
+    }
+    @media (min-width: 400px){
+      width: 400px;
+      height: 220px;
+    }
+
+  
+  
+  `
 
 
-
-export {Table, CheckColor, TableViews}
+export {Table, CheckColor, TableViews, StyledSnackbar, tableLoaderResponsive}
