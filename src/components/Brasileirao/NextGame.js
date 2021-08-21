@@ -3,23 +3,36 @@ import Apiresponse from '../../Api/Apiresponse';
 import Header from '../Header-Home/Header';
 import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
 import {Table} from '../Styles/tableStyled'
+import TableLoader from '../ReactContentLoader/ReactLoader';
 
 
 class Nextgame extends Component {
   state = {  
-    nextGames: []
+    nextGames: [],
+    loading: false
   }
 
-  componentDidMount(){
-    let id = this.props.match.params.code
-    Apiresponse.getNextGames(id).then(games =>{
-      const jogos = games.data['campeonato-brasileiro']
-      console.log(jogos)
+  componentDidMount= async() => {
+    try{
       this.setState({
-        nextGames: jogos
+        loading: true
       })
-    })
+      const id = this.props.match.params.code
+      const getNextGames = await Apiresponse.getNextGames(id)
+        this.setState({
+          nextGames: getNextGames.data['campeonato-brasileiro']
+        })
+      
+    } catch(error){
+      console.error(error)
+    } finally{
+      this.setState({
+        loading: false
+      })
+    }
   }
+
+
 
   renderTableHeader = (headerNames = [] ) => {
     return headerNames.map((element,index) => {
@@ -53,15 +66,16 @@ class Nextgame extends Component {
         <UnderHeaderImg children='Proximas Partidas'/> 
           <div style={{backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")`}} className='  p-5'>
             <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
-              <div style={{ fontSize: '1.4vw' }} className=' w-100 d-flex justify-content-center'>
-                <div>
+              <div className=' w-100 d-flex justify-content-center'>
+                <div className= 'text-center'>
                   <h2 id='title'>Proximas Partidas</h2>
+                {this.state.loading ? <TableLoader width={600} height={300}/> :
                     <Table>
                       <tbody>
                         <tr>{this.renderTableHeader(['#', 'TIME', 'X', 'TIME', '#', 'DATA PREVISTA'])}</tr>
                           {this.renderTableNextGames()}
                       </tbody>
-                    </Table>
+                    </Table>}
                 </div>
               </div>
             </div>

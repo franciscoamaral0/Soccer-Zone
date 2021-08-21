@@ -3,6 +3,7 @@ import Header from '../Header-Home/Header';
 import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
 import Apiresponse from '../../Api/Apiresponse';
 import { Table } from '../Styles/tableStyled';
+import TableLoader from '../ReactContentLoader/ReactLoader';
 
 
 class ViewTableSulamericana extends Component {
@@ -10,10 +11,14 @@ class ViewTableSulamericana extends Component {
     time: [],
     artilharia: [],
     rodada: [],
+    loading: false
   }
 
   componentDidMount = async () => {
     try{
+      this.setState({
+        loading: true
+      })
       const { data: getArtilheiro } = await Apiresponse.getArtilheiro(8)
       const { data: getRound } = await Apiresponse.getRound(8)
       const { data: getNextStep } = await Apiresponse.getNextStep(8, getRound.fase_atual.fase_id)
@@ -25,6 +30,10 @@ class ViewTableSulamericana extends Component {
 
     } catch (error){
         console.error(error)
+    } finally{
+      this.setState({
+        loading: false
+      })
     }
   }
 
@@ -99,36 +108,39 @@ class ViewTableSulamericana extends Component {
         <UnderHeaderImg children='Sul-Americana'/>
         <div style={{ backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")` }} className='  p-5'>
           <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
-            <div style={{ fontSize: '1.4vw' }} className=' w-100 d-flex justify-content-evenly flex-wrap '>
+            <div className=' w-100 d-flex justify-content-evenly flex-wrap '>
 
-              <div >
+              <div className= 'text-center' >
                 <h2 id='title'>Próxima Fase - Jogo Ida</h2>
-                <Table id='clubs'>
-                  <tbody>
-                    <tr>{this.renderTableHeader(['#', 'MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE', '#', 'Data Prevista'])}</tr>
-                    {this.renderTableNextRounds()}
-                  </tbody>
-                </Table>
+                  {this.state.loading ? <TableLoader width={400} height={220}/> :
+                    <Table id='clubs'>
+                      <tbody>
+                        <tr>{this.renderTableHeader(['#', 'MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE', '#', 'Data Prevista'])}</tr>
+                        {this.renderTableNextRounds()}
+                      </tbody>
+                    </Table>}
 
                 <h2 className='mt-5' id='title'>Próxima Fase - Jogo Volta</h2>
-                <Table id='clubs'>
-                  <tbody>
-                    <tr>{this.renderTableHeader(['#', 'MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE', '#', 'Data Prevista'])}</tr>
-                    {this.renderTableNextRoundsReturnGame()}
-                  </tbody>
-                </Table>
+                  {this.state.loading ? <TableLoader width={400} height={220}/> :
+                    <Table id='clubs'>
+                      <tbody>
+                        <tr>{this.renderTableHeader(['#', 'MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE', '#', 'Data Prevista'])}</tr>
+                        {this.renderTableNextRoundsReturnGame()}
+                      </tbody>
+                    </Table>}
               </div>
 
 
 
-              <div className='pt-5'>
+              <div className='pt-5 text-center'>
                 <h2 id='title'>Artilharia</h2>
-                <Table id='clubs'>
-                  <tbody>
-                    <tr>{this.renderTableHeader(['#', 'TIME', 'NOME', 'GOLS'])}</tr>
-                    {this.renderTableTopScore()}
-                  </tbody>
-                </Table>
+                  {this.state.loading ? <TableLoader width={400} height={220}/> :
+                    <Table id='clubs'>
+                      <tbody>
+                        <tr>{this.renderTableHeader(['#', 'TIME', 'NOME', 'GOLS'])}</tr>
+                        {this.renderTableTopScore()}
+                      </tbody>
+                    </Table>}
               </div>
 
 

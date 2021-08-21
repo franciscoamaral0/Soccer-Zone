@@ -4,6 +4,7 @@ import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
 import Apiresponse from '../../Api/Apiresponse';
 import {Link, } from "react-router-dom";
 import {Table, CheckColor} from '../Styles/tableStyled'
+import TableLoader from '../ReactContentLoader/ReactLoader';
 
 
 class ViewTablesBrasileirao extends Component {
@@ -11,16 +12,21 @@ class ViewTablesBrasileirao extends Component {
     time: [],
     artilharia: [],
     rodada: [],
+    loading: false
   }
 
 
 
   componentDidMount = async () => {
     try{
+      this.setState({
+        loading: true
+      })
       const { data: getClassificationTable } = await Apiresponse.getClassificationTable(10)
       const { data: getArtilheiro } = await Apiresponse.getArtilheiro(10)
       const { data: getRounds } = await Apiresponse.getRound(10)
       const { data: getNextRounds } = await Apiresponse.getNextRounds(10, getRounds.rodada_atual.rodada)
+      
       this.setState({
         time: getClassificationTable,
         artilharia: getArtilheiro.slice(0,10),
@@ -28,8 +34,14 @@ class ViewTablesBrasileirao extends Component {
       })
 
     } catch(error) {
-        console.error(error)}
-    
+        console.error(error)
+      } finally {
+        this.setState({
+          loading: false
+        })
+      }
+      
+      
   }
 
 
@@ -78,10 +90,13 @@ class ViewTablesBrasileirao extends Component {
           <td>x</td>
           <td>{element.placar_visitante}</td>
           <td><img width='35px' src={element.time_visitante.escudo} alt={element.time_visitante.nome_popular} /></td>
+          <td>{element.data_realizacao} - {element.hora_realizacao}</td>
         </tr>
       )
     })
   }
+
+  
 
   render() {
     return (
@@ -91,35 +106,38 @@ class ViewTablesBrasileirao extends Component {
         <div style={{ backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")` }} className='  p-5'>
           <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
             <div  className='  w-100 d-flex justify-content-evenly flex-wrap '>
-
-              <div className= ' pb-5'>
+              <div className= ' pb-5 text-center'>
                 <h2 id='title'>Classificação</h2>
-                <Table>
+            {this.state.loading ? <TableLoader width={400} height={220}/> : 
+                <Table> 
                   <tbody>
                     <tr>{this.renderTableHeader(['#', '', 'CLUBE', 'PONTOS', 'RECENTES'])}</tr>
                     {this.renderTableData('time')}
                   </tbody>
-                </Table>
-              </div>
-
-              <div className= 'pb-5'>
-                <h2 id='title'>Próxima Rodada</h2>
-                <Table>
-                  <tbody>
-                    <tr>{this.renderTableHeader(['MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE'])}</tr>
-                    {this.renderTableNextRounds()}
-                  </tbody>
-                </Table>
+                  </Table>}
               </div>
               
-              <div className= 'pb-5'>
+              <div className= 'pb-5 text-center'>
+                <h2 id='title'>Próxima Rodada</h2>
+              {this.state.loading ? <TableLoader width={400} height={220}/> : 
+                <Table>
+                  <tbody>
+                    <tr>{this.renderTableHeader(['MANDANTE', 'GOLS', '', 'GOLS', 'VISITANTE', 'DATA PREVISTA'])}</tr>
+                    {this.renderTableNextRounds()}
+                  </tbody>
+                </Table>}
+              </div>
+              
+              
+              <div className= 'pb-5 text-center'>
                 <h2 id='title'>Artilharia</h2>
+              {this.state.loading ? <TableLoader width={400} height={220}/> : 
                 <Table>
                   <tbody>
                     <tr>{this.renderTableHeader(['#', 'TIME', 'NOME', 'GOLS'])}</tr>
                     {this.renderTableTopScore()}
                   </tbody>
-                </Table>
+                </Table>}
               </div>
             </div>
           </div>
