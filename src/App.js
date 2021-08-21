@@ -24,6 +24,7 @@ function App() {
         <Sectionhome/>
        <Footer/>
       </Route>
+      
       <Route path='/brasileirao' component={ViewTablesBrasileirao} exact/>
       <Route path='/copa-do-brasil' component={ViewTableCopaBrasil}/>
       <Route path='/libertadores' component={ViewTableLibertadores}/>

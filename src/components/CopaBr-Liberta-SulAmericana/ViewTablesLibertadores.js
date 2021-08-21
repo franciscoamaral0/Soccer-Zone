@@ -3,16 +3,21 @@ import Header from "../Header-Home/Header";
 import UnderHeaderImg from "../Header-Home/UnderHeaderImg";
 import Apiresponse from "../../Api/Apiresponse";
 import { Table } from "../Styles/tableStyled";
+import TableLoader from '../ReactContentLoader/ReactLoader';
 
 class ViewTableLibertadores extends Component {
   state = {
     time: [],
     artilharia: [],
     rodada: [],
+    loading: false
   };
 
   componentDidMount = async () => {
     try {
+      this.setState({
+        loading: true
+      })
       const { data: getArtilheiro } = await Apiresponse.getArtilheiro(7);
       const { data: getRound } = await Apiresponse.getRound(7);
       const { data: getNextStep } = await Apiresponse.getNextStep(
@@ -26,6 +31,10 @@ class ViewTableLibertadores extends Component {
       });
     } catch (error) {
       console.error(error);
+    } finally{
+      this.setState({
+        loading: false
+      })
     }
   };
 
@@ -114,7 +123,7 @@ class ViewTableLibertadores extends Component {
           </td>
           <td>
             <td>
-              {element.partida_volta.data_realizacao} -{" "}
+              {element.partida_volta.data_realizacao} -
               {element.partida_volta.hora_realizacao}
             </td>
           </td>
@@ -136,58 +145,61 @@ class ViewTableLibertadores extends Component {
         >
           <div className="shadow-sm p-5 bg-body rounded d-flex  align-self-baseline ">
             <div className=" w-100 d-flex justify-content-evenly flex-wrap">
-              <div style={{ fontSize: "1.4vw" }}>
+              <div className= 'text-center'>
                 <h2 id="title">Próxima Fase - Jogo Ida</h2>
-                <Table id="clubs">
-                  <tbody>
-                    <tr>
-                      {this.renderTableHeader([
-                        "#",
-                        "MANDANTE",
-                        "GOLS",
-                        "",
-                        "GOLS",
-                        "VISITANTE",
-                        "#",
-                        "Data Prevista",
-                      ])}
-                    </tr>
-                    {this.renderTableNextRounds()}
-                  </tbody>
-                </Table>
+                {this.state.loading ? <TableLoader width={400} height={220}/> : 
+                  <Table id="clubs">
+                    <tbody>
+                      <tr>
+                        {this.renderTableHeader([
+                          "#",
+                          "MANDANTE",
+                          "GOLS",
+                          "",
+                          "GOLS",
+                          "VISITANTE",
+                          "#",
+                          "Data Prevista",
+                        ])}
+                      </tr>
+                      {this.renderTableNextRounds()}
+                    </tbody>
+                  </Table>}
 
                 <h2 className="mt-5" id="title">
                   Próxima Fase - Jogo Volta
                 </h2>
-                <Table id="clubs">
-                  <tbody>
-                    <tr>
-                      {this.renderTableHeader([
-                        "#",
-                        "MANDANTE",
-                        "GOLS",
-                        "",
-                        "GOLS",
-                        "VISITANTE",
-                        "#",
-                        "Data Prevista",
-                      ])}
-                    </tr>
-                    {this.renderTableNextRoundsReturnGame()}
-                  </tbody>
-                </Table>
+                {this.state.loading ? <TableLoader width={400} height={220}/> : 
+                  <Table id="clubs">
+                    <tbody>
+                      <tr>
+                        {this.renderTableHeader([
+                          "#",
+                          "MANDANTE",
+                          "GOLS",
+                          "",
+                          "GOLS",
+                          "VISITANTE",
+                          "#",
+                          "Data Prevista",
+                        ])}
+                      </tr>
+                      {this.renderTableNextRoundsReturnGame()}
+                    </tbody>
+                  </Table>}
               </div>
 
-              <div style={{ fontSize: "1.4vw" }} className="pt-5">
+              <div className="pt-5 text-center">
                 <h2 id="title">Artilharia</h2>
-                <Table id="clubs">
-                  <tbody>
-                    <tr>
-                      {this.renderTableHeader(["#", "TIME", "NOME", "GOLS"])}
-                    </tr>
-                    {this.renderTableTopScore()}
-                  </tbody>
-                </Table>
+                {this.state.loading ? <TableLoader width={400} height={220}/> : 
+                  <Table id="clubs">
+                    <tbody>
+                      <tr>
+                        {this.renderTableHeader(["#", "TIME", "NOME", "GOLS"])}
+                      </tr>
+                      {this.renderTableTopScore()}
+                    </tbody>
+                  </Table>}
               </div>
             </div>
           </div>
