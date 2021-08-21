@@ -1,13 +1,12 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import { Alert, AlertTitle } from "@material-ui/lab";
+import { Alert } from "@material-ui/lab";
 import Header from "../Header-Home/Header";
 import UnderHeaderImg from "../Header-Home/UnderHeaderImg";
 import Footer from "../Footer/Footer";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Component } from "react";
-import Snackbar from '@material-ui/core/Snackbar'
 import {StyledSnackbar} from '../Styles/tableStyled'
 
 class ContactForm extends Component {
