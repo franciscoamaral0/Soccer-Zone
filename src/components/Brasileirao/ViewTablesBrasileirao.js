@@ -5,6 +5,7 @@ import Apiresponse from '../../Api/Apiresponse';
 import {Link, } from "react-router-dom";
 import {Table, CheckColor} from '../Styles/tableStyled'
 import TableLoader from '../ReactContentLoader/ReactLoader';
+import { Container } from '../Styles/homeStyled';
 
 
 class ViewTablesBrasileirao extends Component {
@@ -103,7 +104,7 @@ class ViewTablesBrasileirao extends Component {
       <>
         <Header />
         <UnderHeaderImg children='Brasileirão' />
-        <div style={{ backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")` }} className='  p-5'>
+        <Container>
           <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
             <div  className='  w-100 d-flex justify-content-evenly flex-wrap '>
               <div className= ' pb-5 text-center'>
@@ -141,7 +142,7 @@ class ViewTablesBrasileirao extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </>
     );
   }

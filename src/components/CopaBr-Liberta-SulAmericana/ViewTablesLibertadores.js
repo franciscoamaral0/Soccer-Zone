@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Header from "../Header-Home/Header";
 import UnderHeaderImg from "../Header-Home/UnderHeaderImg";
 import Apiresponse from "../../Api/Apiresponse";
-import { Table } from "../Styles/tableStyled";
+import { TableViews } from "../Styles/tableStyled";
 import TableLoader from '../ReactContentLoader/ReactLoader';
+import { Container } from "../Styles/homeStyled";
 
 class ViewTableLibertadores extends Component {
   state = {
@@ -137,18 +138,13 @@ class ViewTableLibertadores extends Component {
       <>
         <Header />
         <UnderHeaderImg children="Libertadores" />
-        <div
-          style={{
-            backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")`,
-          }}
-          className="  p-5"
-        >
+        <Container>
           <div className="shadow-sm p-5 bg-body rounded d-flex  align-self-baseline ">
             <div className=" w-100 d-flex justify-content-evenly flex-wrap">
               <div className= 'text-center'>
                 <h2 id="title">Próxima Fase - Jogo Ida</h2>
                 {this.state.loading ? <TableLoader width={400} height={220}/> : 
-                  <Table id="clubs">
+                  <TableViews>
                     <tbody>
                       <tr>
                         {this.renderTableHeader([
@@ -164,13 +160,13 @@ class ViewTableLibertadores extends Component {
                       </tr>
                       {this.renderTableNextRounds()}
                     </tbody>
-                  </Table>}
+                  </TableViews>}
 
                 <h2 className="mt-5" id="title">
                   Próxima Fase - Jogo Volta
                 </h2>
                 {this.state.loading ? <TableLoader width={400} height={220}/> : 
-                  <Table id="clubs">
+                  <TableViews>
                     <tbody>
                       <tr>
                         {this.renderTableHeader([
@@ -186,24 +182,24 @@ class ViewTableLibertadores extends Component {
                       </tr>
                       {this.renderTableNextRoundsReturnGame()}
                     </tbody>
-                  </Table>}
+                  </TableViews>}
               </div>
 
               <div className="pt-5 text-center">
                 <h2 id="title">Artilharia</h2>
                 {this.state.loading ? <TableLoader width={400} height={220}/> : 
-                  <Table id="clubs">
+                  <TableViews>
                     <tbody>
                       <tr>
                         {this.renderTableHeader(["#", "TIME", "NOME", "GOLS"])}
                       </tr>
                       {this.renderTableTopScore()}
                     </tbody>
-                  </Table>}
+                  </TableViews>}
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </>
     );
   }
