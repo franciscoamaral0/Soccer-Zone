@@ -4,6 +4,7 @@ import Header from '../Header-Home/Header';
 import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
 import {Table} from '../Styles/tableStyled'
 import TableLoader from '../ReactContentLoader/ReactLoader';
+import { Container } from '../Styles/homeStyled';
 
 
 class Nextgame extends Component {
@@ -64,7 +65,7 @@ class Nextgame extends Component {
       <>
       <Header/>
         <UnderHeaderImg children='Proximas Partidas'/> 
-          <div style={{backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")`}} className='  p-5'>
+          <Container>
             <div className='shadow-sm p-5 bg-body rounded d-flex  align-self-baseline '>
               <div className=' w-100 d-flex justify-content-center'>
                 <div className= 'text-center'>
@@ -79,7 +80,7 @@ class Nextgame extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
       </>
     );
   }
