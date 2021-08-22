@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Snackbar } from '@material-ui/core';
-import TableLoader from '../ReactContentLoader/ReactLoader';
+
 
 const Table = styled.table`
   text-align:center;
@@ -30,26 +30,24 @@ const Table = styled.table`
     td a { font-size: 0.5rem; }
     td img{ width: 15px;}
     th { font-size: 0.5rem; }
-
 }
   @media (min-width: 401px) {
-    td{ font-size: 0.8rem;}
-    td a { font-size: 0.8rem; }
+    td{ font-size: 0.7rem;}
+    td a { font-size: 0.7rem; }
     td img{ width: 23px;}
-    th { font-size: 0.8rem; }
-
+    th { font-size: 0.7rem; }
 }
   @media (min-width: 992px) {
-    td  {font-size: 1rem;}
-    td a { font-size: 1rem; }
+    td  {font-size: 0.85rem;}
+    td a { font-size: 0.8rem; }
     td img{ width: 30px;}
-    th { font-size: 1rem; }
+    th { font-size: 0.8rem; }
 }
   @media (min-width: 1200px) {
-    td  {font-size: 1.1rem;}
-    td a { font-size: 1.1rem; }
+    td  {font-size: 1rem;}
+    td a { font-size: 1rem; }
     td img{ width: 34px;}
-    th { font-size: 1.1em; }
+    th { font-size: 1em; }
 }
 `;
 
@@ -78,35 +76,35 @@ const TableViews = styled.table`
     background-color: #ddd;
   }
 
-  @media (max-width: 429px) {
-    td {font-size: 0.34rem; }
-    td a { font-size: 0.34rem; }
-    td img{ width: 10px;}
-    th { font-size: 0.34rem; }
+  @media only screen and (min-width: 300px) and (max-width: 429px) {
+    td {font-size: 0.43rem;}
+    td a { font-size: 0.43rem;}
+    td img{ width: 17px;}
+    th { font-size: 0.43rem;}
 
 }
 
-  @media (min-width: 578px) {
-    td {font-size: 0.5rem; }
-    td a { font-size: 0.5rem; }
-    td img{ width: 15px;}
-    th { font-size: 0.5rem; }
+  @media only screen and (min-width: 430px) and (max-width: 600px) {
+    td {font-size: 0.65rem; }
+    td a { font-size: 0.65rem; }
+    td img{ width: 20px;}
+    th { font-size: 0.65rem; }
 
 }
-  @media (min-width: 579px) {
+  @media only screen and (min-width: 601px) {
     td{ font-size: 0.8rem;}
     td a { font-size: 0.8rem; }
-    td img{ width: 20px;}
+    td img{ width: 24px;}
     th { font-size: 0.8rem; }
 
 }
-  @media (min-width: 992px) {
+  @media only screen and (min-width: 992px) {
     td  {font-size: 0.9rem;}
     td a { font-size: 0.9rem; }
-    td img{ width: 26px;}
+    td img{ width: 28px;}
     th { font-size: 0.9rem; }
 }
-  @media (min-width: 1200px) {
+  @media only screen and (min-width: 1200px) {
     td  {font-size: 1rem;}
     td a { font-size: 1rem; }
     td img{ width: 32px;}
@@ -125,19 +123,9 @@ const StyledSnackbar = styled(Snackbar)`
   display: inline;
 
   `
-  const tableLoaderResponsive = styled(TableLoader)`
-    @media (max-width: 400px){
-      width: 300px;
-      height: 135px;
-    }
-    @media (min-width: 400px){
-      width: 400px;
-      height: 220px;
-    }
+  
 
   
-  
-  `
 
 
-export {Table, CheckColor, TableViews, StyledSnackbar, tableLoaderResponsive}
+export {Table, CheckColor, TableViews, StyledSnackbar}

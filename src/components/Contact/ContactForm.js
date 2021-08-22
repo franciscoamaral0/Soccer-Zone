@@ -8,6 +8,8 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Component } from "react";
 import {StyledSnackbar} from '../Styles/tableStyled'
+import { Container } from "../Styles/homeStyled";
+import { FormDivHeader } from "../Styles/ContactStyled";
 
 class ContactForm extends Component {
   state = {
@@ -46,20 +48,15 @@ render(){
     <>
       <Header />
       <UnderHeaderImg children="Contato" />
-      <div
-        style={{
-          backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")`,
-        }}
-        className="  p-5"
-      >
-        <div className="shadow-sm p-5 bg-body rounded">
-        <div className='text-center pt-4'>
+      <Container>
+        <div className="shadow-sm p-4 bg-body rounded">
+        <FormDivHeader className='text-center '>
 
         <h2>TEM ALGUMA DÚVIDA OU SUGESTÃO?</h2>
         <h5>Nós queremos ouvir as suas dúvidas e sugestões. Fique à vontade para nos enviar
                 uma mensagem e em breve entraremos em contato com você.</h5>
-        </div>
-          <div className= 'p-5'>
+        </FormDivHeader>
+          <div >
             <Form onSubmit={this.sendEmail} >
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Nome</Form.Label>
@@ -80,19 +77,19 @@ render(){
               </div>
             </Form>
 
-            <StyledSnackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={this.state.loadingOk} autoHideDuration={3000} onClose={this.handleClose}>
+            <StyledSnackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={this.state.loadingOk} autoHideDuration={2200} onClose={this.handleClose}>
               <Alert onClose={this.handleClose} severity="success">
                 Mensagem enviada com sucesso! 
               </Alert>
             </StyledSnackbar>
-            <StyledSnackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={this.state.loadingError} autoHideDuration={3000} onClose={this.handleClose}>
+            <StyledSnackbar anchorOrigin={{vertical: 'top', horizontal: 'right'}} open={this.state.loadingError} autoHideDuration={2200} onClose={this.handleClose}>
               <Alert onClose={this.handleClose} severity="error">
                 Erro, verifique e tente novamente!
               </Alert>
             </StyledSnackbar>
           </div>
         </div>
-      </div>
+      </Container>
       <Footer />
     </>
   );

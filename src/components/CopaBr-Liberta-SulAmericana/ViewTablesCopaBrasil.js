@@ -4,6 +4,7 @@ import UnderHeaderImg from "../Header-Home/UnderHeaderImg";
 import Apiresponse from "../../Api/Apiresponse";
 import { TableViews } from "../Styles/tableStyled";
 import TableLoader from '../ReactContentLoader/ReactLoader';
+import { Container } from "../Styles/homeStyled";
 
 class ViewTableCopaBrasil extends Component {
   state = {
@@ -65,7 +66,7 @@ class ViewTableCopaBrasil extends Component {
 
   renderTableNextRounds = () => {
     return this.state.rodada.map((element) => {
-      console.log(element);
+      
 
       return (
         <tr key={element.fase_id}>
@@ -138,15 +139,10 @@ class ViewTableCopaBrasil extends Component {
       <>
         <Header />
         <UnderHeaderImg children="Copa do Brasil" />
-        <div
-          style={{
-            backgroundImage: `url("https://i.pinimg.com/originals/81/b2/07/81b20736e3201de30766c8b5ba69673b.jpg")`,
-          }}
-          className="  p-5"
-        >
-          <div className="shadow-sm p-5 bg-body rounded d-flex  align-self-baseline ">
-            <div className=" w-100 d-flex justify-content-evenly flex-wrap ">
-              <div className='text-center'>
+        <Container>
+          <div className="shadow-sm p-5 bg-body rounded d-flex  align-self-baseline">
+            <div className="w-100 d-flex justify-content-evenly flex-wrap">
+              <div className=' text-center'>
                 <h2 id="title">Próxima Fase - Jogo Ida</h2>
                 {this.state.loading ? <TableLoader width={400} height={220}/> :
                   <TableViews>
@@ -191,7 +187,7 @@ class ViewTableCopaBrasil extends Component {
               
               </div>
 
-              <div className="pt-5 text-center">
+              <div className=" pt-5 text-center">
                 <h2 id="title">Artilharia</h2>
                 {this.state.loading ? <TableLoader width={400} height={220}/> :
                 <TableViews>
@@ -205,7 +201,7 @@ class ViewTableCopaBrasil extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </>
     );
   }
