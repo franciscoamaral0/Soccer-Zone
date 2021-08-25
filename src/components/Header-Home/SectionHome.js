@@ -20,8 +20,10 @@ return (
             O projeto baseia-se em 4 paginas onde teremos alguns dados sobre campeonatos de futebol brasileiro e sul-americano.
             Na aba <Link to='/brasileirao' className='text-decoration-none fw-bold'> campeonato brasileiro</Link>, teremos  informações sobre pontuação corrente e seus respectivos clubes, repetindo-se nas abas da <Link to='/copa-do-brasil' className='text-decoration-none fw-bold'>copa do Brasil</Link>, <Link to='/libertadores' className='text-decoration-none fw-bold'>libertadores da américa</Link> e <Link className='text-decoration-none fw-bold'>copa sul-americana</Link>.
             Qualquer dúvida ou sugestão, ficara disponível ao fim da página nossos contatos e o código-fonte do github.
-            <hr/>
+            </Paragraph>
 
+            <hr/>
+            <Paragraph>
             This page was developed as a project for the second module of the Ironhack bootcamop.
             We had the initial idea of building something that would be useful not only for learning purposes but also something that we could keep in development, adding features.
             The project is based on 4 pages where we will have some data about Brazilian and South American soccer championships.
