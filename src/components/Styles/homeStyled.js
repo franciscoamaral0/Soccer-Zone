@@ -71,10 +71,40 @@ font-family: 'Roboto';
   }
 `
 
+const NotFoundStyledH1 = styled.h1`
+ {props.className}
+  background-image: url(${backgroundImg});
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 350px;
+  @media only screen and (min-width: 300px) and (max-width: 429px) {
+    font-size: 125px
+
+}
+
+  @media only screen and (min-width: 430px) and (max-width: 600px) {
+    font-size: 200px
+
+}
+  @media only screen and (min-width: 601px) {
+    font-size: 250px
+
+}
+  @media only screen and (min-width: 992px) {
+    font-size: 300px
+}
+  @media only screen and (min-width: 1200px) {
+    font-size: 350px
+}
+  
+`
 
 
 
-export {Section, Paragraph, Container}
+
+
+export {Section, Paragraph, Container, NotFoundStyledH1}
 
 
 
