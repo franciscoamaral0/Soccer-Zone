@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header-Home/Header';
 import UnderHeaderImg from '../Header-Home/UnderHeaderImg';
 import Apiresponse from '../../Api/Apiresponse';
-import {Link, } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Table, CheckColor} from '../Styles/tableStyled'
 import TableLoader from '../ReactContentLoader/ReactLoader';
 import { Container } from '../Styles/homeStyled';

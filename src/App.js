@@ -11,6 +11,7 @@ import ViewTableCopaBrasil from './components/CopaBr-Liberta-SulAmericana/ViewTa
 import ViewTableLibertadores from './components/CopaBr-Liberta-SulAmericana/ViewTablesLibertadores';
 import ViewTableSulamericana from './components/CopaBr-Liberta-SulAmericana/ViewTablesSulamericana';
 import ContactForm from './components/Contact/ContactForm'
+import NotFound from './components/NotFound/NotFound';
 
 
 
@@ -27,11 +28,12 @@ function App() {
       </Route>
       
       <Route path='/brasileirao' component={ViewTablesBrasileirao} exact/>
-      <Route path='/copa-do-brasil' component={ViewTableCopaBrasil}/>
-      <Route path='/libertadores' component={ViewTableLibertadores}/>
-      <Route path='/sul-americana' component={ViewTableSulamericana}/>
-      <Route path='/contato' component={ContactForm}/>
+      <Route path='/copa-do-brasil' component={ViewTableCopaBrasil} exact/>
+      <Route path='/libertadores' component={ViewTableLibertadores} exact/>
+      <Route path='/sul-americana' component={ViewTableSulamericana} exact/>
+      <Route path='/contato' component={ContactForm} exact/>
       <Route path='/brasileirao/:code' component={Nextgame}/>
+      <Route component={NotFound}/>
     </Switch>
       
     </div>
