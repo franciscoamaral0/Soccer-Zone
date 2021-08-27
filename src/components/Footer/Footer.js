@@ -22,10 +22,10 @@ class Footer extends Component {
             </div>
           </div>
           <div className = 'mt-5 text-center'>
-          <h5 className='pb-4'>Copyright © 2021 - Soccer Zone</h5>
+          <h5  style={{color: '#2c2e72'}} className='pb-4'>Copyright © 2021 - Soccer Zone</h5>
           </div>
           <div className=' text-decoration-none mt-3 mb-2 text-center'>
-            <h3 className = 'm-2 text-black'>Follow Francisco</h3>
+            <h3 style={{color: '#2c2e72'}} className = 'm-2 text-black'>Follow Francisco</h3>
             <div className = 'mt-4 mb-3 d-flex justify-content-evenly'>
               <a style = {{color: '#2c2e72'}} href="https://www.instagram.com/franciscogurgel0/" rel="noopener noreferrer" target='_blank' ><InstagramIcon fontSize = 'large'/></a>
               <a style = {{color: '#2c2e72'}} href="https://www.facebook.com/franciscogurgel777" rel="noopener noreferrer" target='_blank' ><FacebookIcon fontSize = 'large'/></a>
